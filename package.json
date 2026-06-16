@@ -2,7 +2,7 @@
   "name": "abi87-app",
   "version": "1.0.0",
   "scripts": {
-    "build": "tsc"
+    "build": "node ./node_modules/typescript/bin/tsc"
   },
   "devDependencies": {
     "typescript": "^5.9.3"
