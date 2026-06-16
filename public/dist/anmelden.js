@@ -16,12 +16,9 @@ var _a;
     const geburtsname = document.getElementById("geburtsname").value;
     const email = document.getElementById("email").value;
     const leistungskurs = document.getElementById("leistungskurs").value;
-    // Teilnahme ist IMMER true
     const teilnahme = true;
-    // 1. Bestehende Daten laden
     const res = yield fetch("/data.json");
     const data = yield res.json();
-    // 2. Neuen Teilnehmer hinzufügen
     data.teilnehmer.push({
         vorname,
         name,
@@ -31,7 +28,6 @@ var _a;
         teilnahme,
         timestamp: new Date().toISOString()
     });
-    // 3. API aufrufen
     yield fetch("/api/save", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

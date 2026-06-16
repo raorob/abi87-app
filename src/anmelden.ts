@@ -7,14 +7,11 @@ document.getElementById("anmeldenForm")?.addEventListener("submit", async (e) =>
     const email = (document.getElementById("email") as HTMLInputElement).value;
     const leistungskurs = (document.getElementById("leistungskurs") as HTMLSelectElement).value;
 
-    // Teilnahme ist IMMER true
     const teilnahme = true;
 
-    // 1. Bestehende Daten laden
     const res = await fetch("/data.json");
     const data = await res.json();
 
-    // 2. Neuen Teilnehmer hinzufügen
     data.teilnehmer.push({
         vorname,
         name,
@@ -25,7 +22,6 @@ document.getElementById("anmeldenForm")?.addEventListener("submit", async (e) =>
         timestamp: new Date().toISOString()
     });
 
-    // 3. API aufrufen
     await fetch("/api/save", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
