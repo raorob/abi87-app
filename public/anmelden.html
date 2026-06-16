@@ -1,11 +1,23 @@
-<form id="anmeldenForm">
-  <div><input id="vorname" placeholder="Vorname" required></div>
-  <div><input id="name" placeholder="Name" required></div>
-  <div><input id="geburtsname" placeholder="Geburtsname (optional)"></div>
-  <div><input id="email" placeholder="E-Mail" required></div>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Anmeldung – Abi87</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="/dist/anmelden.js"></script>
+</head>
+<body>
+  <h1>Anmeldung</h1>
+  <h2>Abi87‑Treffen am 4. September 2027 in Groß‑Gerau</h2>
 
-  <label>Leistungskurs</label>
-  <div>
+  <form id="anmeldenForm">
+
+    <input id="vorname" placeholder="Vorname" required>
+    <input id="name" placeholder="Name" required>
+    <input id="geburtsname" placeholder="Geburtsname (optional)">
+    <input id="email" placeholder="E-Mail" required>
+
+    <label>Leistungskurs</label>
     <select id="leistungskurs">
       <option>Heckmann</option>
       <option>Bender</option>
@@ -23,7 +35,10 @@
       <option>Werner</option>
       <option>Abi88</option>
     </select>
-  </div>
 
-  <button type="submit">Anmelden</button>
-</form>
+    <button type="submit">Anmelden</button>
+  </form>
+
+  <p><a href="teilnehmer.html">Teilnehmer ansehen</a></p>
+</body>
+</html>
