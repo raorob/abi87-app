@@ -11,18 +11,26 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 var _a;
 (_a = document.getElementById("anmeldenForm")) === null || _a === void 0 ? void 0 : _a.addEventListener("submit", (e) => __awaiter(void 0, void 0, void 0, function* () {
     e.preventDefault();
+    const vorname = document.getElementById("vorname").value;
     const name = document.getElementById("name").value;
+    const geburtsname = document.getElementById("geburtsname").value;
     const email = document.getElementById("email").value;
+    const leistungskurs = document.getElementById("leistungskurs").value;
+    const teilnahme = document.getElementById("teilnahme").checked;
     // 1. Bestehende Daten laden
     const res = yield fetch("/data.json");
     const data = yield res.json();
     // 2. Neuen Teilnehmer hinzufügen
     data.teilnehmer.push({
+        vorname,
         name,
+        geburtsname,
         email,
+        leistungskurs,
+        teilnahme,
         timestamp: new Date().toISOString()
     });
-    // 3. Neue Daten an API senden
+    // 3. API aufrufen → HIER passiert das Speichern
     yield fetch("/api/save", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
