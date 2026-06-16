@@ -1,48 +1,27 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <title>Anmeldung – Abi87</title>
-  <link rel="stylesheet" href="style.css">
-  <script type="module" src="dist/anmelden.js"></script>
-</head>
-<body>
-  <h1>Anmeldung</h1>
-  <h2>Abi87‑Treffen am 4. September 2027 in Groß‑Gerau</h2>
+<form id="anmeldenForm">
+  <input id="vorname" placeholder="Vorname" required>
+  <input id="name" placeholder="Name" required>
+  <input id="geburtsname" placeholder="Geburtsname (optional)">
+  <input id="email" placeholder="E-Mail" required>
 
-  <form id="form">
-    <input id="vorname" placeholder="Vorname" required>
-    <input id="name" placeholder="Name" required>
-    <input id="geburtsname" placeholder="Geburtsname (optional)">
-    <input id="email" placeholder="E-Mail" required>
+  <label>Leistungskurs</label>
+  <select id="leistungskurs">
+    <option>Heckmann</option>
+    <option>Bender</option>
+    <option>Dobry</option>
+    <option>Dürk</option>
+    <option>Gallmeier</option>
+    <option>Heckmann</option>
+    <option>Jekel</option>
+    <option>Penth</option>
+    <option>Reibstein</option>
+    <option>Rother</option>
+    <option>Schenk</option>
+    <option>Siegfarth</option>
+    <option>Stein</option>
+    <option>Werner</option>
+    <option>Abi88</option>
+  </select>
 
-    <label>Leistungskurs</label>
-    <select id="lk">
-      <option>Heckmann</option>
-      <option>Bender</option>
-      <option>Dobry</option>
-      <option>Dürk</option>
-      <option>Gallmeier</option>
-      <option>Heckmann</option>
-      <option>Jekel</option>
-      <option>Penth</option>
-      <option>Reibstein</option>
-      <option>Rother</option>
-      <option>Schenk</option>
-      <option>Siegfarth</option>
-      <option>Stein</option>
-      <option>Werner</option>
-      <option>Abi88</option>
-    </select>
-
-    <label>
-      <input type="checkbox" id="teilnahme" checked>
-      Ich nehme teil
-    </label>
-
-    <button type="submit">Anmelden</button>
-  </form>
-
-  <p><a href="teilnehmer.html">Teilnehmer ansehen</a></p>
-</body>
-</html>
+  <button type="submit">Anmelden</button>
+</form>

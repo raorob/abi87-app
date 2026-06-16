@@ -16,7 +16,8 @@ var _a;
     const geburtsname = document.getElementById("geburtsname").value;
     const email = document.getElementById("email").value;
     const leistungskurs = document.getElementById("leistungskurs").value;
-    const teilnahme = document.getElementById("teilnahme").checked;
+    // Teilnahme ist IMMER true
+    const teilnahme = true;
     // 1. Bestehende Daten laden
     const res = yield fetch("/data.json");
     const data = yield res.json();
@@ -30,7 +31,7 @@ var _a;
         teilnahme,
         timestamp: new Date().toISOString()
     });
-    // 3. API aufrufen → HIER passiert das Speichern
+    // 3. API aufrufen
     yield fetch("/api/save", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

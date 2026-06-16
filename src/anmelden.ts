@@ -6,7 +6,9 @@ document.getElementById("anmeldenForm")?.addEventListener("submit", async (e) =>
     const geburtsname = (document.getElementById("geburtsname") as HTMLInputElement).value;
     const email = (document.getElementById("email") as HTMLInputElement).value;
     const leistungskurs = (document.getElementById("leistungskurs") as HTMLSelectElement).value;
-    const teilnahme = (document.getElementById("teilnahme") as HTMLInputElement).checked;
+
+    // Teilnahme ist IMMER true
+    const teilnahme = true;
 
     // 1. Bestehende Daten laden
     const res = await fetch("/data.json");
@@ -23,7 +25,7 @@ document.getElementById("anmeldenForm")?.addEventListener("submit", async (e) =>
         timestamp: new Date().toISOString()
     });
 
-    // 3. API aufrufen → HIER passiert das Speichern
+    // 3. API aufrufen
     await fetch("/api/save", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
