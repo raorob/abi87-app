@@ -1,8 +1,11 @@
+context.log("API wurde aufgerufen");
+
 const { Octokit } = require("@octokit/rest");
 
 module.exports = async function (context, req) {
   try {
     const token = process.env.GITHUB_TOKEN;
+    context.log("TOKEN:", process.env.GITHUB_TOKEN ? "OK" : "FEHLT");
 
     if (!token) {
       return {
@@ -42,6 +45,7 @@ module.exports = async function (context, req) {
       sha
     });
 
+    context.log("Daten erfolgreich gespeichert");
     return {
       status: 200,
       body: "OK"
