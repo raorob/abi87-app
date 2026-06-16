@@ -2,7 +2,7 @@
   "name": "abi87-app",
   "version": "1.0.0",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc && if not exist public\\dist mkdir public\\dist && copy dist\\*.js public\\dist\\"
   },
   "devDependencies": {
     "typescript": "^5.0.0"
