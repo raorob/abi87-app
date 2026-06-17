@@ -29,9 +29,8 @@ jobs:
           action: "upload"
 
           # ⭐ WICHTIG: Hier ist die korrekte Konfiguration
-          app_location: "."        # Projektroot
-          api_location: "api"      # dein save.js liegt hier
-          output_location: "dist"  # dein kompiliertes JS liegt hier
+          app_location: "public"        # Projektroot
+          output_location: ""  # dein kompiliertes JS liegt hier
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
