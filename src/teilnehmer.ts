@@ -14,6 +14,9 @@ async function laden() {
   const tbody = document.getElementById("liste") as HTMLTableSectionElement;
   tbody.innerHTML = "";
 
+  const count = document.getElementById("count") as HTMLSpanElement;
+  count.textContent = "Teilnehmer (" + data.teilnehmer.length.toString() + ")";
+
   data.teilnehmer.forEach((t: any) => {
     const tr = document.createElement("tr");
     tr.innerHTML = `

@@ -9,6 +9,8 @@ async function laden() {
     // 2. Tabelle füllen
     const tbody = document.getElementById("liste");
     tbody.innerHTML = "";
+    const count = document.getElementById("count");
+    count.textContent = "Teilnehmer (" + data.teilnehmer.length.toString() + ")";
     data.teilnehmer.forEach((t) => {
         const tr = document.createElement("tr");
         tr.innerHTML = `
