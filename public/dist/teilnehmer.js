@@ -10,7 +10,7 @@ async function laden() {
     const tbody = document.getElementById("liste");
     tbody.innerHTML = "";
     const count = document.getElementById("count");
-    count.textContent = "Teilnehmer (" + data.teilnehmer.length.toString() + ")";
+    count.textContent = "Teilnehmer (" + data.teilnehmer.filter((t) => t.teilnahme).length + ")";
     data.teilnehmer.forEach((t) => {
         const tr = document.createElement("tr");
         tr.innerHTML = `
