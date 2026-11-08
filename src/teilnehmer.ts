@@ -15,7 +15,7 @@ async function laden() {
   tbody.innerHTML = "";
 
   const count = document.getElementById("count") as HTMLSpanElement;
-  count.textContent = "Teilnehmer (" + data.teilnehmer.length.toString() + ")";
+  count.textContent = "Teilnehmer (" + data.teilnehmer.filter((t: any) => t.teilnahme).length + ")";
 
   data.teilnehmer.forEach((t: any) => {
     const tr = document.createElement("tr");
