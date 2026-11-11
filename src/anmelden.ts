@@ -13,6 +13,7 @@ document.getElementById("anmeldenForm")?.addEventListener("submit", async (e) =>
     const name = (document.getElementById("name") as HTMLInputElement).value.trim();
     const geburtsname = (document.getElementById("geburtsname") as HTMLInputElement).value.trim();
     const email = (document.getElementById("email") as HTMLInputElement).value.trim();
+    const teilnahme = (document.getElementById("teilnahme") as HTMLSelectElement).value;
     const leistungskurs = (document.getElementById("leistungskurs") as HTMLSelectElement).value;
 
     const blobUrl = await getBlobUrl();
@@ -40,7 +41,7 @@ document.getElementById("anmeldenForm")?.addEventListener("submit", async (e) =>
         geburtsname,
         email,
         leistungskurs,
-        teilnahme: true,
+        teilnahme,
         timestamp: new Date().toISOString()
     });
 

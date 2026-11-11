@@ -14,8 +14,11 @@ async function laden() {
   const tbody = document.getElementById("liste") as HTMLTableSectionElement;
   tbody.innerHTML = "";
 
+  const teilnahmeText = (teilnahme: boolean | string) =>
+    typeof teilnahme === "boolean" ? (teilnahme ? "Ja" : "Nein") : teilnahme;
+
   const count = document.getElementById("count") as HTMLSpanElement;
-  count.textContent = "Teilnehmer (" + data.teilnehmer.filter((t: any) => t.teilnahme).length + ")";
+  count.textContent = "Teilnehmer (" + data.teilnehmer.filter((t: any) => teilnahmeText(t.teilnahme) === "Ja").length + ")";
 
   data.teilnehmer.forEach((t: any) => {
     const tr = document.createElement("tr");
@@ -25,7 +28,7 @@ async function laden() {
       <td>${t.geburtsname || ""}</td>
       <td>${t.email}</td>
       <td>${t.leistungskurs}</td>
-      <td>${t.teilnahme ? "Ja" : "Nein"}</td>
+      <td>${teilnahmeText(t.teilnahme)}</td>
     `;
     tbody.appendChild(tr);
   });

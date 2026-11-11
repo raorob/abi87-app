@@ -9,6 +9,7 @@ document.getElementById("anmeldenForm")?.addEventListener("submit", async (e) =>
     const name = document.getElementById("name").value.trim();
     const geburtsname = document.getElementById("geburtsname").value.trim();
     const email = document.getElementById("email").value.trim();
+    const teilnahme = document.getElementById("teilnahme").value;
     const leistungskurs = document.getElementById("leistungskurs").value;
     const blobUrl = await getBlobUrl();
     // 1. Bestehende Datei laden
@@ -29,7 +30,7 @@ document.getElementById("anmeldenForm")?.addEventListener("submit", async (e) =>
         geburtsname,
         email,
         leistungskurs,
-        teilnahme: true,
+        teilnahme,
         timestamp: new Date().toISOString()
     });
     // 4. JSON in Blob umwandeln

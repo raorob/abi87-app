@@ -9,8 +9,9 @@ async function laden() {
     // 2. Tabelle füllen
     const tbody = document.getElementById("liste");
     tbody.innerHTML = "";
+    const teilnahmeText = (teilnahme) => typeof teilnahme === "boolean" ? (teilnahme ? "Ja" : "Nein") : teilnahme;
     const count = document.getElementById("count");
-    count.textContent = "Teilnehmer (" + data.teilnehmer.filter((t) => t.teilnahme).length + ")";
+    count.textContent = "Teilnehmer (" + data.teilnehmer.filter((t) => teilnahmeText(t.teilnahme) === "Ja").length + ")";
     data.teilnehmer.forEach((t) => {
         const tr = document.createElement("tr");
         tr.innerHTML = `
@@ -19,7 +20,7 @@ async function laden() {
       <td>${t.geburtsname || ""}</td>
       <td>${t.email}</td>
       <td>${t.leistungskurs}</td>
-      <td>${t.teilnahme ? "Ja" : "Nein"}</td>
+      <td>${teilnahmeText(t.teilnahme)}</td>
     `;
         tbody.appendChild(tr);
     });
